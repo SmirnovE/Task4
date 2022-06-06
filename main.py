@@ -19,7 +19,7 @@ def min_operations(n:int):
     minimums = []
     for x in cand:
         minimums.append(min_operations(x))
-        t = min(minimums)
+    t = min(minimums)
 
     NumOp[n-1] = t + 1
     calculatedN = max(n, calculatedN)
