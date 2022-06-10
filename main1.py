@@ -1,4 +1,4 @@
-N = 10000
+import math
 
 def calc_offset(n):
     return max(3, 2+int(math.log10(n)))
@@ -28,12 +28,12 @@ def calc_num_op(n, memo):
 
     t = min(minimums)
     
-    if n < N//2:
+    if n < N//6:
         memo[n] = t
     
     return  t
 
 if __name__ == '__main__':
-     
+    N = int(input())
     memo = {1: 0, 2: 1, 3: 1}
-    print(N, calc_num_op(N, memo))
+    print(calc_num_op(N, memo))
