@@ -27,27 +27,29 @@ def normalize_right(num_list):
     if num_list[0] == 0:
         num_list.remove(0)
 
+def int_to_list(num):
+    r_list = []
+    for ri in str(num):
+        r_list.append(int(ri))
+    return r_list
 
 if __name__ == '__main__':
     L = 809
-    R = 999095
+    R = 10**10
 
-    r_list = []
-    l_list = []
 
-    for ri in str(R):
-        r_list.append(int(ri))
+    rs = int_to_list(R)
+    ls = int_to_list(L)
 
-    for li in str(L):
-        l_list.append(int(li))
 
-    print(f'l = {l_list}')
-    normalize_left(l_list)
-    print(f'l_norm = {l_list}')
 
-    print(f'r = {r_list}')
-    normalize_right(r_list)
-    print(f'r_norm = {r_list}')
+    print(f'l = {ls}')
+    normalize_left(ls)
+    print(f'l_norm = {ls}')
+
+    print(f'r = {rs}')
+    normalize_right(rs)
+    print(f'r_norm = {rs}')
 
     tables = []
     table0 = (9, 8, 7, 6, 5, 4, 3, 2, 1)
@@ -55,7 +57,7 @@ if __name__ == '__main__':
     sumtables = []
     sumtables.append(table0)
 
-    for n in range(1, len(r_list) - 1):
+    for n in range(1, len(rs) - 1):
         prev_sum = sumtables[n - 1]
         table_n = []
         for index in range(81):
